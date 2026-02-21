@@ -8,7 +8,10 @@ if (lang !== "ko" && lang !== "en") {
 
 const script = document.createElement("script");
 
-script.src =
-    "https://unpkg.com/blockly/msg/" + lang + ".js";
+script.src = "https://unpkg.com/blockly/msg/" + lang + ".js";
+
+script.onload = function () {
+    initBlockly();
+};
 
 document.head.appendChild(script);
