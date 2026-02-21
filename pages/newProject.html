@@ -2,69 +2,118 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>MintCoding</title>
-
-    <link rel="icon" type="image/svg+xml" href="img/logo.svg">
-    <link rel="manifest" href="manifest.json">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/lang.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MintCoding Editor</title>
+    <!-- Blockly 라이브러리 -->
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="https://unpkg.com/blockly/javascript.min.js"></script>
+    <script src="../js/app.js"></script>
+    <script src="../js/lang_newProject.js"></script>
+    <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
+    <link rel="stylesheet" href="../css/editor.css">
 </head>
 
 <body>
-    <div class="container">
-        <div class="header">
-            <a href="https://minirang.github.io">
-                <img src="img/logo.svg" alt="MintCoding Logo" class="logo">
-            </a>
-            <h1 data-key="title">MintCoding</h1>
-        </div>
+<div class="topbar">
+    <img src="../img/logo.svg" alt="MintCoding Logo" class="logo" style="width: 40px;; height: auto; cursor: pointer;" onclick="window.location.href='https://minirang.github.io/MintCoding?lang=ko'"/>
+    <input type="text" id="projectName" placeholder="프로젝트 이름 입력"/>
+    <button onclick="runCode()">실행</button>
+    <button onclick="saveFile()">저장(.mnc)</button>
+    <button onclick="loadFile()">불러오기</button>
+</div>
 
-        <div class="content">
-            <button class="language-toggle"id="language-toggle"onclick="langToggle()">
-                EN / KO
-            </button>
+<div class="main">
+    <div id="blocklyDiv"></div>
+</div>
 
-            <p data-key="description">
-                Welcome to MintCoding! Your go-to platform for learning block coding
-                in a fun and interactive way.
-            </p>
+<xml id="toolbox" style="display: none">
+  <!-- 기본 -->
+  <category name="기본" colour="180">
+    <block type="text_print"></block>
+    <block type="controls_if"></block>
+    <block type="controls_ifelse"></block>
+    <block type="controls_flow_statements"></block>
+  </category>
 
-            <a id="start-btn" class="btn" data-key="start">
-                Get Started
-            </a>
-        </div>
-    </div>
+  <!-- 반복 -->
+  <category name="반복" colour="210">
+    <block type="controls_repeat_ext"></block>
+    <block type="controls_whileUntil"></block>
+    <block type="controls_for"></block>
+    <block type="controls_forEach"></block>
+  </category>
 
-    <!--추후에 만들기 기능 생기면 이미지 추가할거-->
-    <img src="img/MintCoding_img.png" alt="mintcoding" class="main-img">
+  <!-- 논리 -->
+  <category name="논리" colour="330">
+    <block type="logic_boolean"></block>
+    <block type="logic_compare"></block>
+    <block type="logic_operation"></block>
+    <block type="logic_negate"></block>
+    <block type="logic_null"></block>
+    <block type="logic_ternary"></block>
+  </category>
 
-    <div class="footer">
-        <footer>
-            <div class="minirang">
-                <a href="https://minirang.github.io" target="_blank" rel="noopener noreferrer">
-                    <img src="img/logo.svg" alt="서울민트초코" class="img">
-                    <span>minirang</span>
-                </a>
-                
-                <ul>
-                    <li>
-                        <a href="https://github.com/minirang" target="_blank" rel="noopener noreferrer">
-                            <img src="img/github.svg" alt="깃허브" class="img" id="github">
-                            GitHub
-                        </a>
-                    </li>
+  <!-- 수학 -->
+  <category name="수학" colour="230">
+    <block type="math_number"></block>
+    <block type="math_arithmetic"></block>
+    <block type="math_single"></block>
+    <block type="math_trig"></block>
+    <block type="math_constant"></block>
+    <block type="math_number_property"></block>
+    <block type="math_round"></block>
+    <block type="math_on_list"></block>
+    <block type="math_modulo"></block>
+    <block type="math_random_int"></block>
+    <block type="math_random_float"></block>
+    <block type="math_atan2"></block>
+  </category>
 
-                    <li>
-                        <a href="https://playentry.org/profile/62d00ecb8b49cc01e2b68603" target="_blank" rel="noopener noreferrer">
-                            <img src="img/entry.svg" alt="엔트리" class="img">
-                            Entry
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </footer>
-    </div>
+  <!-- 텍스트 -->
+  <category name="텍스트" colour="20">
+    <block type="text"></block>
+    <block type="text_join"></block>
+    <block type="text_append"></block>
+    <block type="text_length"></block>
+    <block type="text_isEmpty"></block>
+    <block type="text_indexOf"></block>
+    <block type="text_charAt"></block>
+    <block type="text_getSubstring"></block>
+    <block type="text_changeCase"></block>
+    <block type="text_trim"></block>
+    <block type="text_prompt_ext"></block>
+    <block type="text_count"></block>
+    <block type="text_replace"></block>
+  </category>
+
+  <!-- 리스트 -->
+  <category name="리스트" colour="260">
+    <block type="lists_create_with"></block>
+    <block type="lists_repeat"></block>
+    <block type="lists_length"></block>
+    <block type="lists_isEmpty"></block>
+    <block type="lists_indexOf"></block>
+    <block type="lists_getIndex"></block>
+    <block type="lists_setIndex"></block>
+    <block type="lists_getSublist"></block>
+    <block type="lists_split"></block>
+    <block type="lists_sort"></block>
+    <block type="lists_reverse"></block>
+  </category>
+
+  <!-- 변수 -->
+  <category name="변수" colour="60" custom="VARIABLE"></category>
+
+  <!-- 함수 -->
+  <category name="함수" colour="290" custom="PROCEDURE"></category>
+
+  <!-- 고급 논리 / 반복 -->
+  <category name="고급 제어" colour="210">
+    <block type="controls_whileUntil"></block>
+    <block type="controls_flow_statements"></block>
+    <block type="controls_forEach"></block>
+  </category>
+</xml>
+
 </body>
 </html>
