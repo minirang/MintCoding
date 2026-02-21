@@ -29,7 +29,7 @@ function applyLanguage(lang) {
 
     const startBtn = document.getElementById("start-btn");
     if (startBtn) {
-        startBtn.href = `pages/newProject.html?lang=${lang}`;
+        startBtn.href = `https://minirang.github.io/MintCoding/pages/newProject?lang=${lang}`;
     }
 }
 
