@@ -1,0 +1,63 @@
+body {
+    margin: 0;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.topbar {
+    height: 50px;
+    background: #2ecc71;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-left: 10px;
+}
+
+button {
+    padding: 6px 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.main {
+    flex: 1;
+    display: flex;
+}
+
+#blocklyDiv {
+    flex: 1;
+}
+
+.blocklyTreeRow {
+    border-radius: 8px;
+    margin: 2px 4px;
+}
+
+.blocklyTreeRowSelected {
+    outline: none !important;
+    border-radius: 8px;
+}
+
+#projectName {
+    width: 220px;
+    height: 21px;
+    padding: 6px 10px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: 0.2s;
+}
+
+#projectName:focus {
+    border: 1px solid #4CAF50;
+    box-shadow: 0 0 4px rgba(76,175,80,0.4);
+}
+
+#projectName::placeholder {
+    color: #999;
+}
