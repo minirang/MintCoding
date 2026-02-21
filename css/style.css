@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f7f6;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 50px;
+    padding: 20px;
+    text-align: center;
+    flex: 1;
+}
+
+p {
+    font-size: 16px;
+    max-width: 500px;
+    margin: 15px auto;
+    line-height: 1.7;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+}
+
+.main-img {
+    width: 100%;
+    max-width: 400px;
+    margin: 30px auto;
+}
+
+.content {
+    margin-top: 20px;
+}
+
+.language-toggle {
+    padding: 8px 16px;
+    margin-bottom: 15px;
+    border: none;
+    background-color: #4caf88;
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+.language-toggle:hover {
+    background-color: #3c9e74;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 24px;
+    background-color: #4caf88;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #3c9e74;
+}
+
+.footer {
+    padding: 20px;
+    background-color: #e9efec;
+    text-align: center;
+}
+
+.minirang a {
+    text-decoration: none;
+    color: #333;
+}
+
+.minirang ul {
+    list-style: none;
+    margin-top: 10px;
+}
+
+.minirang li {
+    margin: 6px 0;
+}
+
+.img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+#github {
+    width: 18px;
+    height: 18px;
+}
