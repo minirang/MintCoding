@@ -32,6 +32,7 @@ function applyUILanguage() {
         document.getElementById("catFunc").setAttribute("name", "함수");
         document.getElementById("catAdvanced").setAttribute("name", "고급 제어");
         document.getElementById("catColour").setAttribute("name", "색상");
+        document.getElementById("catMint").setAttribute("name", "민트");
     } else {
         document.getElementById("projectName").placeholder = "Enter project name";
         document.getElementById("runButton").textContent = "Run";
@@ -45,5 +46,30 @@ function applyUILanguage() {
         document.getElementById("catFunc").setAttribute("name", "Functions");
         document.getElementById("catAdvanced").setAttribute("name", "Advanced");
         document.getElementById("catColour").setAttribute("name", "Colour");
+        document.getElementById("catMint").setAttribute("name", "Mint");
     }
 }
+
+const TOOLTIP = {
+ko: {
+    mint_wait:
+    "기다리기 블록\n\n지정한 시간만큼\n프로그램을 멈춥니다",
+
+    mint_sha256:
+    "SHA256 암호화\n\n텍스트를 안전한 해시값으로 변환합니다",
+
+    mint_print:
+    "출력 블록\n\n값을 화면에 표시합니다"
+
+},
+en: {
+    mint_wait:
+    "Wait block\n\nPause the program for the given time",
+
+    mint_sha256:
+    "SHA256 block\n\nConvert text into a secure hash",
+
+    mint_print:
+    "Print block\n\nDisplay text on the screen"
+
+}};
