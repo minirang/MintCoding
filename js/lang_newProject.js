@@ -50,6 +50,7 @@ function applyUILanguage() {
     }
 }
 
+// 마우스 올리면 노란 박스에 블록 설명 나오는거의 언어별로 설명
 const TOOLTIP = {
 ko: {
     mint_wait:
@@ -59,7 +60,10 @@ ko: {
     "SHA256 암호화\n\n텍스트를 안전한 해시값으로 변환합니다",
 
     mint_print:
-    "출력 블록\n\n값을 화면에 표시합니다"
+    "출력 블록\n\n값을 화면에 표시합니다",
+
+    mint_trim:
+    "문자열 자르기 블록\n\n문자열의 앞뒤 공백을 제거합니다"
 },
 en: {
     mint_wait:
@@ -69,9 +73,13 @@ en: {
     "SHA256 block\n\nConvert text into a secure hash",
 
     mint_print:
-    "Print block\n\nDisplay text on the screen"
+    "Print block\n\nDisplay text on the screen",
+
+    mint_trim:
+    "Trim block\n\nRemove leading and trailing whitespace from a string"
 }};
 
+// 블록 안에 들어가는 텍스트를 언어별로 정의
 const APPENDFIELD = {
 ko: {
     mint_wait:
@@ -81,7 +89,10 @@ ko: {
     "SHA256",
 
     mint_print:
-    "출력 블록"
+    "출력 블록",
+
+    mint_trim:
+    "문자열 양 끝 공백 제거"
 },
 en: {
     mint_wait:
@@ -91,7 +102,10 @@ en: {
     "SHA256",
 
     mint_print:
-    "console.log"
+    "console.log",
+
+    mint_trim:
+    "Trim whitespace"
 }};
 
 // dummy input 뒤에 붙을 텍스트를 언어별로 정의
