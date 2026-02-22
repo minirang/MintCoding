@@ -7,6 +7,9 @@
     <!-- Blockly 라이브러리 -->
     <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
     <script src="https://unpkg.com/blockly@10.4.3/javascript.min.js"></script>
+    <script src="../js/blocks.js"></script>
+    <script src="../js/generator.js"></script>
+    <script src="../js/functions_for_blocks.js"></script>
     <script src="../js/app.js"></script>
     <script src="../js/lang_newProject.js"></script>
     <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
@@ -117,6 +120,12 @@
     <block type="colour_random"></block>
     <block type="colour_rgb"></block>
     <block type="colour_blend"></block>
+  </category>
+  <!-- 커스텀 / 민트 -->
+  <category id="catMint" name="민트" colour="120">
+    <block type="mint_print"></block>
+    <block type="mint_wait"></block>
+    <block type="mint_sha256"></block>
   </category>
 </xml>
 
