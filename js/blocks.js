@@ -7,7 +7,7 @@ Blockly.Blocks['mint_print'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 
-    this.setColour(120);
+    this.setColour(155);
 
     this.setTooltip(TOOLTIP[lang].mint_print);
   }
@@ -28,7 +28,7 @@ Blockly.Blocks['mint_wait'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 
-    this.setColour(120);
+    this.setColour(155);
 
     this.setTooltip(TOOLTIP[lang].mint_wait);
   }
@@ -44,7 +44,7 @@ Blockly.Blocks['mint_sha256'] = {
 
     this.setOutput(true, "String");
 
-    this.setColour(120);
+    this.setColour(155);
 
     this.setTooltip(TOOLTIP[lang].mint_sha256);
   }
@@ -60,8 +60,10 @@ Blockly.Blocks['mint_trim'] = {
 
     this.setOutput(true, "String");
 
-    this.setColour(120);
+    this.setColour(155);
 
     this.setTooltip(TOOLTIP[lang].mint_trim);
   }
 };
+
+//////////////////////////////////////////////////////////////////////
