@@ -9,6 +9,7 @@ Blockly.JavaScript['mint_print'] = function(block) {
   return `console.log(${text});\n`;
 };
 
+/////////////////////////////////////////////////////////////////////
 Blockly.JavaScript['mint_wait'] = function(block) {
 
   const time = Blockly.JavaScript.valueToCode(
@@ -26,6 +27,7 @@ await new Promise(resolve =>
   return code;
 };
 
+////////////////////////////////////////////////////////////////////
 Blockly.JavaScript['mint_sha256'] = function(block) {
 
   const text = Blockly.JavaScript.valueToCode(
@@ -39,3 +41,14 @@ Blockly.JavaScript['mint_sha256'] = function(block) {
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
 
+/////////////////////////////////////////////////////////////////////
+Blockly.JavaScript['mint_trim'] = function(block) {
+
+  const text = Blockly.JavaScript.valueToCode(
+      block,
+      'TEXT',
+      Blockly.JavaScript.ORDER_NONE
+  );
+
+  return [`${text}.trim()`, Blockly.JavaScript.ORDER_FUNCTION_CALL];
+};
