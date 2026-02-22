@@ -10,7 +10,6 @@ workspace = Blockly.inject("blocklyDiv", {
 });
 }
 
-
 function runCode(){
   const code=Blockly.JavaScript.workspaceToCode(workspace);
   try{eval(code);}
