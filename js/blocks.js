@@ -2,7 +2,7 @@ Blockly.Blocks['mint_print'] = {
   init: function() {
 
     this.appendValueInput("TEXT")
-        .appendField("출력");
+        .appendField(APPENDFIELD[lang].mint_print);
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
@@ -18,7 +18,7 @@ Blockly.Blocks['mint_wait'] = {
 
     this.appendValueInput("TIME")
         .setCheck("Number")
-        .appendField("기다리기");
+        .appendField(APPENDFIELD[lang].mint_wait);
 
     this.appendDummyInput()
         .appendField("초");
@@ -37,7 +37,7 @@ Blockly.Blocks['mint_sha256'] = {
 
     this.appendValueInput("TEXT")
         .setCheck("String")
-        .appendField("SHA256");
+        .appendField(APPENDFIELD[lang].mint_sha256);
 
     this.setOutput(true, "String");
 
