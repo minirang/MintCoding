@@ -10,8 +10,12 @@ workspace = Blockly.inject("blocklyDiv", {
 });
 }
 
-function runCode(){
+async function runCode(){
   const code=Blockly.JavaScript.workspaceToCode(workspace);
-  try{eval(code);}
-  catch(e){alert("Error: "+e);}
+  try{
+    await eval("(async()=>{" + code + "})()");
+  }
+  catch(e){
+    alert("Error: "+e);
+  }
 }
