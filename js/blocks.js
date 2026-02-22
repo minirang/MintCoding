@@ -21,7 +21,8 @@ Blockly.Blocks['mint_wait'] = {
         .appendField(APPENDFIELD[lang].mint_wait);
 
     this.appendDummyInput()
-        .appendField("초");
+        .appendField(DUMMYINPUT_APPENDFILED[lang].mint_wait);
+        
 
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
