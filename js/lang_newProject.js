@@ -60,7 +60,6 @@ ko: {
 
     mint_print:
     "출력 블록\n\n값을 화면에 표시합니다"
-
 },
 en: {
     mint_wait:
@@ -71,5 +70,26 @@ en: {
 
     mint_print:
     "Print block\n\nDisplay text on the screen"
+}};
 
+const APPENDFIELD = {
+ko: {
+    mint_wait:
+    "기다리기",
+
+    mint_sha256:
+    "SHA256",
+
+    mint_print:
+    "출력 블록"
+},
+en: {
+    mint_wait:
+    "Wait for seconds",
+
+    mint_sha256:
+    "SHA256 hash",
+
+    mint_print:
+    "console.log"
 }};
