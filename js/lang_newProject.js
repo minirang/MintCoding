@@ -85,10 +85,10 @@ ko: {
 },
 en: {
     mint_wait:
-    "Wait for seconds",
+    "Wait for",
 
     mint_sha256:
-    "SHA256 hash",
+    "SHA256",
 
     mint_print:
     "console.log"
