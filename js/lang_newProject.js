@@ -93,3 +93,14 @@ en: {
     mint_print:
     "console.log"
 }};
+
+// dummy input 뒤에 붙을 텍스트를 언어별로 정의
+const DUMMYINPUT_APPENDFILED = {
+ko: {
+    mint_wait:
+    "초",
+},
+en: {
+    mint_wait:
+    "seconds",
+}};
