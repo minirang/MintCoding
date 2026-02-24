@@ -3,14 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MintCoding Editor</title>
     <!-- Blockly 라이브러리 -->
     <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
     <script src="https://unpkg.com/blockly@10.4.3/javascript.min.js"></script>
-    <script src="../js/blocks.js"></script>
-    <script src="../js/generator.js"></script>
+    <!-- 커스텀 블록 및 앱 스크립트 -->
+    <!-- 민트 -->
+    <script src="../js/customBlocks/mint/mint.js"></script>
+    <!-- 커스텀 블록 제너레이터 -->
+    <script>
+      const javascriptGenerator = Blockly.JavaScript;
+    </script>
+    <script src="../js/customBlocks/mint/generator.js"></script>
+    <!-- localStorage -->
+    <script src="../js/customBlocks/localstorage/localstorage.js"></script>
+    <script src="../js/customBlocks/localstorage/generator.js"></script>
+    <!-- 백그라운드 스크립트 및 커스텀 블록 언어 패키지 -->
     <script src="../js/functions_for_blocks.js"></script>
     <script src="../js/app.js"></script>
+    <!-- 커스텀 블록 언어 패키지 -->
     <script src="../js/lang_newProject.js"></script>
     <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
     <link rel="stylesheet" href="../css/editor.css">
@@ -33,7 +45,6 @@
     <block type="text_print"></block>
     <block type="controls_if"></block>
     <block type="controls_ifelse"></block>
-    <block type="controls_flow_statements"></block>
   </category>
 
   <!-- 반복 -->
@@ -42,6 +53,7 @@
     <block type="controls_whileUntil"></block>
     <block type="controls_for"></block>
     <block type="controls_forEach"></block>
+    <block type="controls_flow_statements"></block>
   </category>
 
   <!-- 논리 -->
@@ -123,12 +135,27 @@
     <block type="colour_blend"></block>
   </category>
   
+  <!-- 로컬 저장소 -->
+  <!-- 내가 만들고도 너무 헷갈려서 그런데 카테고리 이름에만 storage에 s에 대문자임 -->
+  <category id="catLocalStorage" name="로컬 저장소" colour="70">
+    <block type="localstorage_set"></block>
+    <block type="localstorage_get"></block>
+    <block type="localstorage_remove"></block>
+    <block type="localstorage_clear"></block>
+    <block type="localstorage_length"></block>
+    <block type="localstorage_index"></block>
+    <block type="localstorage_is_have"></block>
+  </category>
+
   <!-- 커스텀 / 민트 -->
   <category id="catMint" name="민트" colour="120">
     <block type="mint_print"></block>
     <block type="mint_wait"></block>
     <block type="mint_sha256"></block>
     <block type="mint_trim"></block>
+    <block type="mint_urlcodec"></block>
+    <block type="mint_copy"></block>
+    <block type="mint_ip"></block>
   </category>
 </xml>
 
