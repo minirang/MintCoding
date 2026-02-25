@@ -6,8 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MintCoding Editor</title>
     <!-- Blockly 라이브러리 -->
+    <script>console.time('모든 자바스크립트 로드 완료')</script>
     <script src="https://unpkg.com/blockly@10.4.3/blockly.min.js"></script>
     <script src="https://unpkg.com/blockly@10.4.3/javascript.min.js"></script>
+    <!-- Blockly field date 플러그인 -->
+    <script src="https://cdn.jsdelivr.net/npm/@blockly/field-date@10.0.8/dist/index.min.js"></script>
     <!-- 커스텀 블록 및 앱 스크립트 -->
     <!-- 민트 -->
     <script src="../js/customBlocks/mint/mint.js"></script>
@@ -19,20 +22,53 @@
     <!-- localStorage -->
     <script src="../js/customBlocks/localstorage/localstorage.js"></script>
     <script src="../js/customBlocks/localstorage/generator.js"></script>
+    <!-- 날짜 블록 -->
+    <script src="../js/customBlocks/date/date.js"></script>
+    <script src="../js/customBlocks/date/generator.js"></script>
     <!-- 백그라운드 스크립트 및 커스텀 블록 언어 패키지 -->
     <script src="../js/functions_for_blocks.js"></script>
     <script src="../js/app.js"></script>
     <!-- 커스텀 블록 언어 패키지 -->
     <script src="../js/lang_newProject.js"></script>
+    <!-- 날짜 선택 블록 정의 -->
+    <script>
+      Blockly.defineBlocksWithJsonArray([
+      {
+        "type": "date_picker",
+        "message0": `${APPENDFIELD[lang].date_picker} %1`,
+        "args0": [
+          {
+            "type": "field_date",
+            "name": "MY_DATE",
+            "date": "2024-01-01"
+          }
+        ],
+        "output": "String",
+        "tooltip": TOOLTIP[lang].date_picker,
+        "colour": 0
+      }
+    ]);
+    </script>
+    <script>
+      javascriptGenerator.forBlock['date_picker'] = function(block, generator) {
+        var date = block.getFieldValue('MY_DATE');
+        return ["'" + date + "'", javascriptGenerator.ORDER_ATOMIC];
+      };
+    </script>
+    <script>console.timeEnd('모든 자바스크립트 로드 완료')</script>
     <link rel="icon" type="image/svg+xml" href="../img/logo.svg">
     <link rel="stylesheet" href="../css/editor.css">
+    <link rel="manifest" href="../manifest.json">
 </head>
 
 <body>
 <div class="topbar">
-    <img src="../img/logo.svg" alt="MintCoding Logo" class="logo" style="width: 40px; height: auto; cursor: pointer;" onclick="window.location.href='https://minirang.github.io/MintCoding?lang=ko'"/>
-    <input type="text" id="projectName" placeholder="프로젝트 이름 입력"/>
-    <button id="runButton" onclick="runCode()">실행</button>
+    <img src="../img/logo.svg" alt="MintCoding Logo" class="logo" style="width: 40px; height: auto; cursor: pointer;" onclick="const params = new URLSearchParams(window.location.search); const lang = params.get('lang') || 'ko'; if (confirm('Would you like to move to another page?\n\n다른 페이지로 이동할까요?')) {window.location.href = 'https://minirang.github.io/MintCoding?lang=' + lang;}"/>
+    <input type="text" id="projectName" placeholder="프로젝트 이름 입력" maxlength="35"/>
+    <button id="runButton" onclick="runCode()">▶ 실행</button>
+    <button id="saveButton" onclick="saveWorkspace()">파일로 저장</button>
+    <button id="loadButton" onclick="document.getElementById('loadFile').click()">파일 불러오기</button>
+    <input type="file" id="loadFile" accept=".mint,.json" style="display: none" onchange="loadWorkspace(event)"/>
 </div>
 
 <div class="main">
@@ -134,6 +170,19 @@
     <block type="colour_rgb"></block>
     <block type="colour_blend"></block>
   </category>
+
+  <!-- 날짜 -->
+  <category id="catDate" name="날짜" colour="0">
+    <block type="date_picker"></block>
+    <block type="date_now"></block>
+    <block type="date_year"></block>
+    <block type="date_month"></block>
+    <block type="date_day"></block>
+    <block type="date_hour"></block>
+    <block type="date_minute"></block>
+    <block type="date_second"></block>
+    <block type="date_week"></block>
+  </category>
   
   <!-- 로컬 저장소 -->
   <!-- 내가 만들고도 너무 헷갈려서 그런데 카테고리 이름에만 storage에 s에 대문자임 -->
@@ -159,5 +208,6 @@
   </category>
 </xml>
 
+<div id="toast"></div>
 </body>
 </html>
