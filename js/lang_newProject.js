@@ -1,13 +1,11 @@
 const params = new URLSearchParams(window.location.search);
 
 let lang = params.get("lang") || "ko";
-
 if (lang !== "ko" && lang !== "en") {
     lang = "ko";
 }
 
 const script = document.createElement("script");
-
 script.src = "https://unpkg.com/blockly/msg/" + lang + ".js";
 
 script.onload = function () {
@@ -15,13 +13,14 @@ script.onload = function () {
     applyUILanguage();
     workspace.updateToolbox(document.getElementById("toolbox"));
 };
-
 document.head.appendChild(script);
 
 function applyUILanguage() {
     if (lang === "ko") {
         document.getElementById("projectName").placeholder = "프로젝트 이름 입력";
-        document.getElementById("runButton").textContent = "실행";
+        document.getElementById("runButton").textContent = "▶ 실행";
+        document.getElementById("saveButton").textContent = "파일로 저장";
+        document.getElementById("loadButton").textContent = "파일 불러오기";
         document.getElementById("catBasic").setAttribute("name", "기본");
         document.getElementById("catLoop").setAttribute("name", "반복");
         document.getElementById("catLogic").setAttribute("name", "논리");
@@ -32,11 +31,14 @@ function applyUILanguage() {
         document.getElementById("catFunc").setAttribute("name", "함수");
         document.getElementById("catAdvanced").setAttribute("name", "고급 제어");
         document.getElementById("catColour").setAttribute("name", "색상");
+        document.getElementById("catDate").setAttribute("name", "날짜");
         document.getElementById("catMint").setAttribute("name", "민트");
         document.getElementById("catLocalStorage").setAttribute("name", "로컬 저장소");
     } else {
         document.getElementById("projectName").placeholder = "Enter project name";
-        document.getElementById("runButton").textContent = "Run";
+        document.getElementById("runButton").textContent = "▶ Run project";
+        document.getElementById("saveButton").textContent = "Save to file";
+        document.getElementById("loadButton").textContent = "Load file";
         document.getElementById("catBasic").setAttribute("name", "Basic");
         document.getElementById("catLoop").setAttribute("name", "Loops");
         document.getElementById("catLogic").setAttribute("name", "Logic");
@@ -47,8 +49,9 @@ function applyUILanguage() {
         document.getElementById("catFunc").setAttribute("name", "Functions");
         document.getElementById("catAdvanced").setAttribute("name", "Advanced");
         document.getElementById("catColour").setAttribute("name", "Colour");
+        document.getElementById("catDate").setAttribute("name", "Date");
         document.getElementById("catMint").setAttribute("name", "Mint");
-        document.getElementById("catLocalStorage").setAttribute("name", "localStorage");
+        document.getElementById("catLocalStorage").setAttribute("name", "LocalStorage");
     }
 }
 
@@ -70,6 +73,16 @@ ko: {
     localstorage_index: '로컬저장소의 인덱스 번째 데이터를 반환합니다.',
     localstorage_is_have: '로컬저장소에 해당 키가 존재하는지 여부를 반환합니다.',
     mint_ip: '사용자의 IP 주소를 반환합니다.',
+
+    date_picker: "날짜 선택 블록\n\n날짜를 선택할 수 있는 달력 UI를 표시합니다",
+    date_now: "현재 날짜/시간 블록\n\n현재 날짜와 시간을 가져옵니다",
+    date_year: "현재 년도 블록\n\n현재 년도를 가져옵니다",
+    date_month: "현재 월 블록\n\n현재 월을 가져옵니다. (1~12)",
+    date_day: "현재 일 블록\n\n현재 일을 가져옵니다",
+    date_hour: "현재 시 블록\n\n현재 시간(시)을 가져옵니다. (0~23)",
+    date_minute: "현재 분 블록\n\n현재 분을 가져옵니다. (0~59)",
+    date_second: "현재 초 블록\n\n현재 초를 가져옵니다. (0~59)",
+    date_week: "현재 요일 블록\n\n현재 요일을 가져옵니다. (예: 월요일, Tuesday)",
 },
 en: {
     mint_wait: "Wait block\n\nPause the program for the given time",
@@ -87,6 +100,16 @@ en: {
     localstorage_length: 'Return the number of items in localStorage',
     localstorage_index: 'Return the data at the given index in localStorage',
     localstorage_is_have: 'Return whether the given key exists in localStorage',
+
+    date_picker: "Date Picker block\n\nDisplay a calendar UI to select a date",
+    date_now: "Current Date/Time block\n\nGet the current date and time",
+    date_year: "Current Year block\n\nGet the current year",
+    date_month: "Current Month block\n\nGet the current month (1~12)",
+    date_day: "Current Day block\n\nGet the current day",
+    date_hour: "Current Hour block\n\nGet the current hour (0~23)",
+    date_minute: "Current Minute block\n\nGet the current minute (0~59)",
+    date_second: "Current Second block\n\nGet the current second (0~59)",
+    date_week: "Current Weekday block\n\nGet the current weekday (e.g. Monday, 화요일)",
 }};
 
 // 블록 안에 들어가는 텍스트를 언어별로 정의
@@ -113,6 +136,16 @@ ko: {
     localstorage_index_1: '번째 아이템',
     localstorage_is_have: '로컬 저장소에',
     localstorage_is_have_1: '키가 존재하는가?',
+
+    date_picker: "날짜:",
+    date_now: "현재 날짜/시간",
+    date_year: "현재 년도",
+    date_month: "현재 월",
+    date_day: "현재 일",
+    date_hour: "현재 시간",
+    date_minute: "현재 분",
+    date_second: "현재 초",
+    date_week: "현재 요일",
 },
 en: {
     mint_wait: "Wait for",
@@ -136,6 +169,16 @@ en: {
     localstorage_index_1: 'item at index',
     localstorage_is_have: 'Does localStorage have',
     localstorage_is_have_1: 'key?',
+
+    date_picker: 'date:',
+    date_now: "current date/time",
+    date_year: "current year",
+    date_month: "current month",
+    date_day: "current day",
+    date_hour: "current hour",
+    date_minute: "current minute",
+    date_second: "current second",
+    date_week: "current weekday",
 }};
 
 // 드롭다운에 표시될 항목을 언어별로 정의
