@@ -13,13 +13,29 @@ body {
     align-items: center;
     gap: 10px;
     padding-left: 10px;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;  /* Firefox 대응 */
+    -ms-overflow-style: none;  /* IE, edge 대응 */
 }
 
-button {
+.topbar::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari */
+}
+
+.topbar > * {
+    flex-shrink: 0;
+}
+
+.topbar button {
     padding: 6px 12px;
     border: none;
     border-radius: 6px;
     cursor: pointer;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .main {
@@ -42,7 +58,7 @@ button {
 }
 
 #projectName {
-    width: 220px;
+    width: 260px;
     height: 21px;
     padding: 6px 10px;
     font-size: 14px;
@@ -60,4 +76,25 @@ button {
 
 #projectName::placeholder {
     color: #999;
+}
+
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
 }
