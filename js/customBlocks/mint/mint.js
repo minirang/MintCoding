@@ -7,7 +7,7 @@ Blockly.Blocks['mint_print'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 
-    this.setColour(155);
+    this.setColour(150);
 
     this.setTooltip(TOOLTIP[lang].mint_print);
   }
@@ -28,7 +28,7 @@ Blockly.Blocks['mint_wait'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
 
-    this.setColour(155);
+    this.setColour(150);
 
     this.setTooltip(TOOLTIP[lang].mint_wait);
   }
@@ -44,25 +44,9 @@ Blockly.Blocks['mint_sha256'] = {
 
     this.setOutput(true, "String");
 
-    this.setColour(155);
+    this.setColour(150);
 
     this.setTooltip(TOOLTIP[lang].mint_sha256);
-  }
-};
-
-///////////////////////////////////////////////////////////////////////
-Blockly.Blocks['mint_trim'] = {
-  init: function() {
-
-    this.appendValueInput("TEXT")
-        .setCheck("String")
-        .appendField(APPENDFIELD[lang].mint_trim);
-
-    this.setOutput(true, "String");
-
-    this.setColour(155);
-
-    this.setTooltip(TOOLTIP[lang].mint_trim);
   }
 };
 
@@ -80,7 +64,7 @@ Blockly.Blocks['mint_urlcodec'] = {
 
     this.setOutput(true, "String");
 
-    this.setColour(155);
+    this.setColour(150);
 
     this.setTooltip(TOOLTIP[lang].mint_urlcodec);
   }
@@ -98,7 +82,7 @@ Blockly.Blocks['mint_copy'] = {
     this.setNextStatement(true, null);
 
 
-    this.setColour(155);
+    this.setColour(150);
 
     this.setTooltip(TOOLTIP[lang].mint_copy);
   }
@@ -113,8 +97,29 @@ Blockly.Blocks['mint_ip'] = {
 
     this.setOutput(true, "String");
 
-    this.setColour(155);
+    this.setColour(150);
 
     this.setTooltip(TOOLTIP[lang].mint_ip);
+  }
+};
+
+///////////////////////////////////////////////////////////////////////
+Blockly.Blocks['mint_toast'] = {
+  init: function() {
+
+    this.appendValueInput("CONTENT")
+        .setCheck("String")
+        .appendField(APPENDFIELD[lang].mint_toast1);
+
+    this.appendValueInput("TIME")
+        .appendField(APPENDFIELD[lang].mint_toast2);
+
+    this.setInputsInline(false)
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+
+    this.setColour(150);
+
+    this.setTooltip(TOOLTIP[lang].mint_toast);
   }
 };
