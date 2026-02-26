@@ -25,6 +25,9 @@
     <!-- 날짜 블록 -->
     <script src="../js/customBlocks/date/date.js"></script>
     <script src="../js/customBlocks/date/generator.js"></script>
+    <!-- 키 입력 -->
+    <script src="../js/customBlocks/keydown/keydown.js"></script>
+    <script src="../js/customBlocks/keydown/generator.js"></script>
     <!-- 백그라운드 스크립트 및 커스텀 블록 언어 패키지 -->
     <script src="../js/functions_for_blocks.js"></script>
     <script src="../js/app.js"></script>
@@ -48,11 +51,34 @@
         "colour": 0
       }
     ]);
+
+      Blockly.defineBlocksWithJsonArray([
+      {
+        "type": "multiline_text",
+        "message0": "¶ %1",
+        "args0": [
+          {
+            "type": "field_multilinetext",
+            "name": "TEXT",
+            "text": ""
+          }
+        ],
+        "output": "String",
+        "tooltip": TOOLTIP[lang].multiline_text,
+        "colour":   160
+      }
+    ]);
     </script>
     <script>
       javascriptGenerator.forBlock['date_picker'] = function(block, generator) {
         var date = block.getFieldValue('MY_DATE');
         return ["'" + date + "'", javascriptGenerator.ORDER_ATOMIC];
+      };
+
+
+      javascriptGenerator.forBlock['multiline_text'] = function(block) {
+        const text = block.getFieldValue('TEXT');
+        return [`\`${text}\``, javascriptGenerator.ORDER_ATOMIC];
       };
     </script>
     <script>console.timeEnd('모든 자바스크립트 로드 완료')</script>
@@ -121,6 +147,7 @@
   <!-- 텍스트 -->
   <category id="catText" name="텍스트" colour="20">
     <block type="text"></block>
+    <block type="multiline_text"></block>
     <block type="text_join"></block>
     <block type="text_append"></block>
     <block type="text_length"></block>
@@ -184,6 +211,12 @@
     <block type="date_week"></block>
   </category>
   
+  <!-- 키 입력 -->
+  <category id="catKeyDown" name="키 입력" colour="230">
+    <block type="keydown"></block>
+    <block type="keyup"></block>
+  </category>
+
   <!-- 로컬 저장소 -->
   <!-- 내가 만들고도 너무 헷갈려서 그런데 카테고리 이름에만 storage에 s에 대문자임 -->
   <category id="catLocalStorage" name="로컬 저장소" colour="70">
@@ -201,10 +234,10 @@
     <block type="mint_print"></block>
     <block type="mint_wait"></block>
     <block type="mint_sha256"></block>
-    <block type="mint_trim"></block>
     <block type="mint_urlcodec"></block>
     <block type="mint_copy"></block>
-    <block type="mint_ip"></block>
+    <block type="mint_ip"></block>5
+    <block type="mint_toast"></block>
   </category>
 </xml>
 
