@@ -46,8 +46,9 @@ function loadWorkspace(event) {
   reader.readAsText(file);
   document.getElementById("projectName").value =
   file.name.replace(/\.mint$/i, "");
-  showToast("프로젝트가 로드되었습니다.", 2500);
+  showToast("프로젝트가 로드되었습니다!", 2500);
   document.title = `MintCoding Editor - ${document.getElementById("projectName").value.trim()}`;
+  event.target.value = "";
 }
 
 // Ctrl + S 저장
