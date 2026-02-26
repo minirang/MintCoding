@@ -29,18 +29,6 @@ javascriptGenerator.forBlock['mint_sha256'] = function(block, generator) {
 };
 
 /////////////////////////////////////////////////////////////////////
-javascriptGenerator.forBlock['mint_trim'] = function(block, generator) {
-
-  const text =
-    generator.valueToCode(block, 'TEXT', generator.ORDER_NONE) || '""';
-
-  return [
-    `${text}.trim()`,
-    generator.ORDER_FUNCTION_CALL
-  ];
-};
-
-/////////////////////////////////////////////////////////////////////
 javascriptGenerator.forBlock['mint_urlcodec'] = function(block, generator) {
 
   const text =
@@ -75,4 +63,13 @@ Blockly.JavaScript.forBlock['mint_ip'] = function(block, generator) {
   const code = `(await fetch('https://httpbin.org/ip').then(r => r.json()).then(d => d.origin))`;
 
   return [code, generator.ORDER_FUNCTION_CALL];
+};
+
+//////////////////////////////////////////////////////////////////////
+javascriptGenerator.forBlock['mint_toast'] = function(block, generator) {
+
+  const content = generator.valueToCode(block, 'CONTENT', generator.ORDER_NONE) || '""';
+  const time = generator.valueToCode(block, 'TIME', generator.ORDER_NONE) || '""';
+
+  return `await(showToast(${content}, ${time} * 1000));\n`;
 };
