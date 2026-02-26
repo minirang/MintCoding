@@ -32,6 +32,7 @@ function applyUILanguage() {
         document.getElementById("catAdvanced").setAttribute("name", "고급 제어");
         document.getElementById("catColour").setAttribute("name", "색상");
         document.getElementById("catDate").setAttribute("name", "날짜");
+        document.getElementById("catKeyDown").setAttribute("name", "키 입력");
         document.getElementById("catMint").setAttribute("name", "민트");
         document.getElementById("catLocalStorage").setAttribute("name", "로컬 저장소");
     } else {
@@ -50,6 +51,7 @@ function applyUILanguage() {
         document.getElementById("catAdvanced").setAttribute("name", "Advanced");
         document.getElementById("catColour").setAttribute("name", "Colour");
         document.getElementById("catDate").setAttribute("name", "Date");
+        document.getElementById("catKeyDown").setAttribute("name", "Key inputs");
         document.getElementById("catMint").setAttribute("name", "Mint");
         document.getElementById("catLocalStorage").setAttribute("name", "LocalStorage");
     }
@@ -61,7 +63,6 @@ ko: {
     mint_wait: "기다리기 블록\n\n지정한 시간만큼 프로그램을 멈춥니다",
     mint_sha256: "SHA256 암호화\n\n텍스트를 안전한 해시값으로 변환합니다",
     mint_print: "출력 블록\n\n값을 콘솔에 로그합니다",
-    mint_trim: "문자열 자르기 블록\n\n문자열의 앞뒤 공백을 제거합니다",
     mint_urlcodec: "URL을 인코딩하거나 디코딩합니다",
     mint_copy: "클립보드에 복사합니다",
 
@@ -73,6 +74,7 @@ ko: {
     localstorage_index: '로컬저장소의 인덱스 번째 데이터를 반환합니다.',
     localstorage_is_have: '로컬저장소에 해당 키가 존재하는지 여부를 반환합니다.',
     mint_ip: '사용자의 IP 주소를 반환합니다.',
+    mint_toast: '토스트로 원하는 글을 원하는 시간만큼 출력합니다.',
 
     date_picker: "날짜 선택 블록\n\n날짜를 선택할 수 있는 달력 UI를 표시합니다",
     date_now: "현재 날짜/시간 블록\n\n현재 날짜와 시간을 가져옵니다",
@@ -83,15 +85,20 @@ ko: {
     date_minute: "현재 분 블록\n\n현재 분을 가져옵니다. (0~59)",
     date_second: "현재 초 블록\n\n현재 초를 가져옵니다. (0~59)",
     date_week: "현재 요일 블록\n\n현재 요일을 가져옵니다. (예: 월요일, Tuesday)",
+
+    multiline_text: "여러줄 입력 가능한 텍스트 박스",
+
+    keydown: "특정 키가 눌렸는지 확인하고 코드를 실행합니다.",
+    keyup: "특정 키가 때졌는지 확인하고 코드를 실행합니다.",
 },
 en: {
     mint_wait: "Wait block\n\nPause the program for the given time",
     mint_sha256: "SHA256 block\n\nConvert text into a secure hash",
     mint_print: "Print block\n\nDisplay text on the console",
-    mint_trim: "Trim block\n\nRemove leading and trailing whitespace from a string",
     mint_urlcodec: "URL Codec block\n\nEncode or decode a URL",
     mint_copy: "Copy block\n\nCopy text to the clipboard",
     mint_ip: "IP block\n\nReturn the user's IP address",
+    mint_toast: 'Toast block\n\nPrints out the requested \namount of time with toast.',
 
     localstorage_set: "Save key and value in localStorage",
     localstorage_get: 'Get value from localStorage by key',
@@ -110,6 +117,11 @@ en: {
     date_minute: "Current Minute block\n\nGet the current minute (0~59)",
     date_second: "Current Second block\n\nGet the current second (0~59)",
     date_week: "Current Weekday block\n\nGet the current weekday (e.g. Monday, 화요일)",
+
+    multiline_text: "A letter, word, or line of text",
+
+    keydown: "Key block\n\nDetermines if a specific key\nhas been pressed and executes code.",
+    keyup: "Key block\n\nDetermines whether a specific key\nis released and executes code.",
 }};
 
 // 블록 안에 들어가는 텍스트를 언어별로 정의
@@ -120,10 +132,11 @@ ko: {
 
     mint_sha256: "SHA256",
     mint_print: "출력 블록",
-    mint_trim: "문자열 양 끝 공백 제거",
     mint_urlcodec: "URL",
     mint_copy: "복사하기",
     mint_ip: "IP 주소",
+    mint_toast1: "토스트 출력 내용:",
+    mint_toast2: "지속시간:",
 
     localstorage_set_1: "로컬 저장소 키",
     localstorage_set_2: "값",
@@ -146,6 +159,10 @@ ko: {
     date_minute: "현재 분",
     date_second: "현재 초",
     date_week: "현재 요일",
+
+    key1: "키",
+    keydown: "가 눌렸는가?",
+    keyup: "가 뗐는가?"
 },
 en: {
     mint_wait: "Wait for",
@@ -153,10 +170,11 @@ en: {
 
     mint_sha256: "SHA256",
     mint_print: "console.log",
-    mint_trim: "Trim whitespace",
     mint_urlcodec: "URL",
     mint_copy: "Copy to clipboard",
     mint_ip: "IP Address",
+    mint_toast1: "Toast content:",
+    mint_toast2: "duration:",
 
     localstorage_set_1: "LocalStorage key",
     localstorage_set_2: "value",
@@ -179,6 +197,10 @@ en: {
     date_minute: "current minute",
     date_second: "current second",
     date_week: "current weekday",
+
+    key1: "Is key",
+    keydown: "pressed?",
+    keyup: "released?",
 }};
 
 // 드롭다운에 표시될 항목을 언어별로 정의
