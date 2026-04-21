@@ -13,3 +13,8 @@ Blockly 기반 블록코딩 사이트입니다.
 ---
 
 <img src="img/MintCoding_img.png">
+
+---
+
+# 주의할점
+`.mint` 파일은 웹 프론트엔드 개발을 위해 만들어진 mint 언어의 확장자가 아닙니다.
