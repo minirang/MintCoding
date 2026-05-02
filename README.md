@@ -40,7 +40,6 @@ MintCoding/
 │   └── newProject.html
 ├── Example.mint
 ├── CONTRIBUTING.md
-├── SECURITY.md
 ├── README.md
 ├── .gitattributes
 ├── LICENSE
