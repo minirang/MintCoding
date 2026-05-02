@@ -1,5 +1,10 @@
 # MintCoding
 
+![HTML](https://img.shields.io/badge/HTML-E34F26?style=flat&logo=html5&logoColor=white)
+![CSS](https://img.shields.io/badge/CSS-1572B6?style=flat&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+
 > Blockly 기반의 블록코딩 에디터입니다. 드래그 앤 드롭으로 코드를 조립해 웹 프론트엔드 코드를 생성해보세요.
 
 -----
@@ -12,12 +17,21 @@ MintCoding/
 │   ├── editor.css
 │   └── style.css
 ├── img/
-│   └── MintCoding_img.png
+│   ├── MintCoding_img.png
+│   ├── entry.svg
+│   ├── github.svg
+│   └── logo.svg
 ├── js/
 │   └── customBlocks/
 │       ├── date/
+│       │   ├── date.js
+│       │   └── generator.js
 │       ├── keydown/
+│       │   ├── keydown.js
+│       │   └── generator.js
 │       └── mint/
+│           ├── mint.js
+│           └── generator.js
 ├── pages/
 │   └── newProject.html
 ├── app.js
@@ -25,6 +39,10 @@ MintCoding/
 ├── lang.js
 ├── lang_newProject.js
 ├── Example.mint
+├── CONTRIBUTING.md
+├── SECURITY.md
+├── .gitattributes
+├── LICENSE
 └── index.html
 ```
 
@@ -53,3 +71,9 @@ MintCoding/
 ## ⚠️ 참고
 
 `.mint` 파일은 웹 프론트엔드 언어인 [Mint-lang](https://www.mint-lang.com/)의 확장자와 **무관합니다.** MintCoding에서 프로젝트를 저장할 때 사용하는 자체 포맷입니다.
+
+-----
+
+## 라이선스
+
+이 프로젝트는 [MIT License](LICENSE) 하에 배포됩니다.
