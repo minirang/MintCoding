@@ -22,25 +22,26 @@ MintCoding/
 │   ├── github.svg
 │   └── logo.svg
 ├── js/
-│   └── customBlocks/
-│       ├── date/
-│       │   ├── date.js
-│       │   └── generator.js
-│       ├── keydown/
-│       │   ├── keydown.js
-│       │   └── generator.js
-│       └── mint/
-│           ├── mint.js
-│           └── generator.js
+│   ├── customBlocks/
+│   │   ├── date/
+│   │   │   ├── date.js
+│   │   │   └── generator.js
+│   │   ├── keydown/
+│   │   │   ├── keydown.js
+│   │   │   └── generator.js
+│   │   └── mint/
+│   │       ├── mint.js
+│   │       └── generator.js
+│   ├── app.js
+│   ├── functions_for_blocks.js
+│   ├── lang.js
+│   └── lang_newProject.js
 ├── pages/
 │   └── newProject.html
-├── app.js
-├── functions_for_blocks.js
-├── lang.js
-├── lang_newProject.js
 ├── Example.mint
 ├── CONTRIBUTING.md
 ├── SECURITY.md
+├── README.md
 ├── .gitattributes
 ├── LICENSE
 └── index.html
