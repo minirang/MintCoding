@@ -22,6 +22,7 @@ git checkout -b feature/your-feature-name
 
 - 커스텀 블록 추가 시 `js/customBlocks/` 하위에 블록명으로 폴더를 만들고, `블록명.js`와 `generator.js`를 작성해주세요.
 - 기존 코드 스타일을 최대한 유지해주세요.
+- **커스텀 블록의 툴팁, 이름, 드롭다운 등 텍스트 구성요소는 반드시 한국어(`ko`)와 영어(`en`) 두 가지로 작성해야 합니다.** `js/lang_newProject.js`의 `TOOLTIP`, `APPENDFIELD`, `DROPDOWN` 객체에 각각 추가해주세요.
 
 ### 4. 커밋 메시지 규칙
 
